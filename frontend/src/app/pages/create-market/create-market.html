@@ -1,0 +1,53 @@
+<div class="create-container">
+  <a routerLink="/" class="back-link">&larr; Back to markets</a>
+
+  <h1>Create Market</h1>
+  <p class="subtitle">Ask a Yes/No question about the future</p>
+
+  @if (errorMessage) {
+    <div class="error-banner">{{ errorMessage }}</div>
+  }
+
+  <div class="form-card">
+    <div class="form-group">
+      <label>Question</label>
+      <input
+        type="text"
+        placeholder="Will Bitcoin hit $200k by 2027?"
+        [(ngModel)]="title"
+        class="form-input"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        placeholder="Add context and resolution criteria..."
+        [(ngModel)]="description"
+        class="form-textarea"
+        rows="4"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      <select [(ngModel)]="selectedCategory" class="form-select">
+        <option [value]="0" disabled>Select a category</option>
+        @for (cat of categories; track cat.id) {
+          <option [value]="cat.id">{{ cat.icon }} {{ cat.name }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>End Date</label>
+      <input
+        type="date"
+        [(ngModel)]="endDate"
+        class="form-input"
+      />
+    </div>
+
+    <button class="btn-create" (click)="createMarket()">Create Market</button>
+  </div>
+</div>

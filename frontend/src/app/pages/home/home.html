@@ -1,0 +1,66 @@
+<div class="home-container">
+  <div class="hero">
+    <h1>Prediction Markets</h1>
+    <p>Bet on the future. Will it happen or not?</p>
+  </div>
+
+  @if (errorMessage) {
+    <div class="error-banner">{{ errorMessage }}</div>
+  }
+
+  <div class="controls">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search markets..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+    />
+
+    <div class="category-tabs">
+      <button
+        class="cat-btn"
+        [class.active]="selectedCategory === 0"
+        (click)="filterByCategory(0)"
+      >All</button>
+      @for (cat of categories; track cat.id) {
+        <button
+          class="cat-btn"
+          [class.active]="selectedCategory === cat.id"
+          (click)="filterByCategory(cat.id)"
+        >{{ cat.icon }} {{ cat.name }}</button>
+      }
+    </div>
+  </div>
+
+  @if (isLoading) {
+    <div class="empty-state">Loading markets...</div>
+  } @else if (filteredMarkets.length > 0) {
+    <div class="markets-grid">
+      @for (market of filteredMarkets; track market.id) {
+        <a [routerLink]="['/markets', market.id]" class="market-card">
+          <div class="card-header">
+            <span class="category-badge">{{ market.category_name }}</span>
+            @if (market.is_resolved) {
+              <span class="resolved-badge">Resolved</span>
+            }
+          </div>
+          <h3 class="card-title">{{ market.title }}</h3>
+          <div class="probability-bar">
+            <div class="yes-bar" [style.width.%]="market.yes_percentage"></div>
+          </div>
+          <div class="probability-labels">
+            <span class="yes-label">Yes {{ market.yes_percentage }}%</span>
+            <span class="no-label">No {{ 100 - market.yes_percentage }}%</span>
+          </div>
+          <div class="card-footer">
+            <span class="volume">{{ market.yes_count + market.no_count }} trades</span>
+            <span class="end-date">Ends {{ market.end_date | date:'mediumDate' }}</span>
+          </div>
+        </a>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">No markets found</div>
+  }
+</div>

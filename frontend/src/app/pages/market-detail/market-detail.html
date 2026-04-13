@@ -1,0 +1,99 @@
+@if (errorMessage) {
+  <div class="error-banner">{{ errorMessage }}</div>
+}
+
+@if (market) {
+  <div class="detail-container">
+    <a routerLink="/" class="back-link">&larr; Back to markets</a>
+
+    <div class="market-header">
+      <span class="category-badge">{{ market.category_name }}</span>
+      <h1>{{ market.title }}</h1>
+      <p class="description">{{ market.description }}</p>
+      <div class="meta">
+        <span>Created {{ market.created_at | date:'mediumDate' }}</span>
+        <span>Ends {{ market.end_date | date:'mediumDate' }}</span>
+      </div>
+    </div>
+
+    <!-- Probability display -->
+    <div class="probability-section">
+      <div class="big-prob">
+        <div class="prob-yes">
+          <span class="prob-number">{{ market.yes_percentage }}%</span>
+          <span class="prob-label">Yes</span>
+          <span class="prob-count">{{ market.yes_count }} votes</span>
+        </div>
+        <div class="prob-no">
+          <span class="prob-number">{{ 100 - market.yes_percentage }}%</span>
+          <span class="prob-label">No</span>
+          <span class="prob-count">{{ market.no_count }} votes</span>
+        </div>
+      </div>
+      <div class="probability-bar">
+        <div class="yes-bar" [style.width.%]="market.yes_percentage"></div>
+      </div>
+    </div>
+
+    <!-- Trade section -->
+    <div class="trade-section">
+      <h2>Place Your Prediction</h2>
+      <div class="trade-buttons">
+        <button class="btn-yes" (click)="placeTrade(true)">Buy Yes</button>
+        <button class="btn-no" (click)="placeTrade(false)">Buy No</button>
+      </div>
+    </div>
+
+    <!-- Recent trades -->
+    <div class="trades-section">
+      <h2>Recent Activity</h2>
+      @if (trades.length === 0) {
+        <p class="empty">No trades yet. Be the first!</p>
+      }
+      @for (trade of trades; track trade.id) {
+        <div class="trade-item">
+          <span class="trade-name">{{ trade.trader_name }}</span>
+          <span class="trade-choice" [class.yes]="trade.choice" [class.no]="!trade.choice">
+            {{ trade.choice ? 'YES' : 'NO' }}
+          </span>
+          <span class="trade-time">{{ trade.created_at | date:'short' }}</span>
+        </div>
+      }
+    </div>
+
+    <!-- Comments -->
+    <div class="comments-section">
+      <h2>Discussion</h2>
+      <div class="comment-form">
+        <input
+          type="text"
+          placeholder="Your name"
+          [(ngModel)]="commentAuthor"
+          class="comment-input"
+        />
+        <textarea
+          placeholder="Write a comment..."
+          [(ngModel)]="commentText"
+          class="comment-textarea"
+          rows="3"
+        ></textarea>
+        <button class="btn-comment" (click)="addComment()">Post Comment</button>
+      </div>
+
+      @for (comment of comments; track comment.id) {
+        <div class="comment-item">
+          <div class="comment-header">
+            <strong>{{ comment.author_name }}</strong>
+            <span class="comment-time">{{ comment.created_at | date:'short' }}</span>
+          </div>
+          <p>{{ comment.text }}</p>
+        </div>
+      }
+    </div>
+
+    <!-- Admin actions -->
+    <div class="admin-actions">
+      <button class="btn-delete" (click)="deleteMarket()">Delete Market</button>
+    </div>
+  </div>
+}

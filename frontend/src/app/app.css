@@ -1,0 +1,62 @@
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-nav {
+  background: rgba(10, 10, 26, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-brand .logo {
+  display: flex;
+  align-items: baseline;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.logo-poly {
+  color: #fff;
+  font-weight: 800;
+}
+
+.logo-predict {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: #2ecc71;
+}
+
+.nav-links a.active {
+  color: #2ecc71;
+  border-bottom-color: #2ecc71;
+}

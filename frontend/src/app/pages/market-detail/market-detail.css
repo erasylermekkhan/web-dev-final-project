@@ -1,0 +1,223 @@
+.detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.back-link {
+  display: inline-block;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+.back-link:hover { color: #2ecc71; }
+
+.market-header { margin-bottom: 2rem; }
+.market-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+.description {
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+.meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+.category-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(46,204,113,0.12);
+  color: #2ecc71;
+}
+
+.error-banner {
+  max-width: 800px;
+  margin: 1rem auto;
+  background: rgba(255,71,87,0.15);
+  border: 1px solid rgba(255,71,87,0.3);
+  color: #ff4757;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Probability */
+.probability-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.big-prob {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.prob-yes, .prob-no {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.prob-number { font-size: 2.5rem; font-weight: 800; }
+.prob-yes .prob-number { color: #2ecc71; }
+.prob-no .prob-number { color: #ff4757; }
+.prob-label { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+.prob-count { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.probability-bar {
+  height: 10px;
+  background: rgba(255,71,87,0.3);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.yes-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  border-radius: 5px;
+  transition: width 0.5s;
+}
+
+/* Trade */
+.trade-section, .trades-section, .comments-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.trade-section h2, .trades-section h2, .comments-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.trade-form {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.trade-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+}
+.trade-input:focus { border-color: #2ecc71; }
+.trade-buttons { display: flex; gap: 0.5rem; }
+.btn-yes, .btn-no {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-yes {
+  background: rgba(46,204,113,0.2);
+  color: #2ecc71;
+  border: 1px solid rgba(46,204,113,0.3);
+}
+.btn-yes:hover { background: rgba(46,204,113,0.35); transform: translateY(-1px); }
+.btn-no {
+  background: rgba(255,71,87,0.2);
+  color: #ff4757;
+  border: 1px solid rgba(255,71,87,0.3);
+}
+.btn-no:hover { background: rgba(255,71,87,0.35); transform: translateY(-1px); }
+
+/* Trades list */
+.trade-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.trade-item:last-child { border-bottom: none; }
+.trade-name { font-weight: 500; }
+.trade-choice {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.trade-choice.yes { background: rgba(46,204,113,0.2); color: #2ecc71; }
+.trade-choice.no { background: rgba(255,71,87,0.2); color: #ff4757; }
+.trade-time { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+.empty { color: rgba(255,255,255,0.4); }
+
+/* Comments */
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.comment-input, .comment-textarea {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+}
+.comment-input:focus, .comment-textarea:focus { border-color: #2ecc71; }
+.btn-comment {
+  align-self: flex-end;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(46,204,113,0.3);
+  background: rgba(46,204,113,0.15);
+  color: #2ecc71;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-comment:hover { background: rgba(46,204,113,0.3); }
+
+.comment-item {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.comment-item:last-child { border-bottom: none; }
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+.comment-time { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+.comment-item p { color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+/* Admin */
+.admin-actions {
+  margin-top: 1rem;
+  text-align: right;
+}
+.btn-delete {
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,71,87,0.3);
+  background: rgba(255,71,87,0.1);
+  color: #ff4757;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-delete:hover { background: rgba(255,71,87,0.25); }
