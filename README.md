@@ -78,5 +78,6 @@ frontend/
 
 ## Group Members
 
-- Bekov Anuar
+- Anuar Batyrbekov
+
 - Zhaisan Yerali
